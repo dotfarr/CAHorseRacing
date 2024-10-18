@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace HorseRacing
 {
-    internal class Horse
+    public class Horse
     {
         //Each horse should have (at minimum) a name, date of birth and unique horseID.
         public string name;
-        public DateOnly dateofbirth;
+        public DateOnly dateOfBirth;
         public int horseID;
 
         public string Name
@@ -22,8 +22,8 @@ namespace HorseRacing
 
         public DateOnly DateOfBirth
         {
-            get { return dateofbirth; }
-            set { dateofbirth = value; }
+            get { return dateOfBirth; }
+            set { dateOfBirth = value; }
         }
 
         public int HorseID
@@ -35,10 +35,11 @@ namespace HorseRacing
 
         public Horse(string name, DateOnly dateOfBirth, int horseID)
         {
-            this.name = name;
+            this.Name = name;
             this.DateOfBirth = dateOfBirth;
-            this.horseID = horseID;
+            this.HorseID = horseID;
         }
+
 
     }
 

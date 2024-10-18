@@ -6,11 +6,13 @@ using System.Threading.Tasks;
 
 namespace HorseRacing
 {
-    internal class Event
+    public class Event
     {
         public string name;
         public string location;
         public int numberOfRaces;
+        private List<Race> races;
+
 
         public string Name
         { 
@@ -37,15 +39,47 @@ namespace HorseRacing
         {
             Name = "unknown";
             Location = "unknown";
-            NumberOfRaces = 0;
+            races = new List<Race>();
+            
         }
 
-        public Event(string name, string location, int numberOfRaces)
+        public Event(string name, string location)
         {
             this.name = name;
             this.location = location;
-            this.numberOfRaces = numberOfRaces;
-            
+            races = new List<Race>();
+                    
+        }
+
+         public void AddRace(Race race)
+        {
+            if (race != null)
+
+            {
+                if (string.IsNullOrEmpty(race.RaceName))
+
+                {
+                    race.RaceName = $"Race {races.Count + 1}";
+                }
+
+                races.Add(race);
+                numberOfRaces = races.Count;
+            }
+        }
+
+        public List<Race> GetRaces()
+
+        {
+            return races;
+        }
+
+        public void ListRaces()
+        {
+            Console.WriteLine($"Races for the event {Name} at {Location}:");
+                foreach (var race in races)
+            { 
+                Console.WriteLine($"Race Name: {race.RaceName}, Starting at: {race.StartTime}");
+            }
         }
     }
 }
