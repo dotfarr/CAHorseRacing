@@ -14,7 +14,7 @@ namespace HorseRacing
             Console.WriteLine();
             Console.WriteLine("*******************");
             Console.WriteLine("Welcome to the Horse Racing App LTDA");
-            Console.WriteLine("Please Select one of the options below: ");
+            Console.WriteLine("Please Select one of the options below:");
             Console.WriteLine("Horserace Managers Select 1");
             Console.WriteLine("Horse Owners Select 2");
             Console.WriteLine("Racegoers Select 3");

@@ -11,7 +11,7 @@ namespace HorseRacing
         public string name;
         public string location;
         public int numberOfRaces;
-        private List<Race> races;
+        public List<Race> races;
 
 
         public string Name
@@ -49,23 +49,14 @@ namespace HorseRacing
             this.name = name;
             this.location = location;
             this.numberOfRaces = numberOfRaces;
+            races = new List<Race>();
                     
         }
 
          public void AddRace(Race race)
         {
-            if (race != null)
-
-            {
-                if (string.IsNullOrEmpty(race.RaceName))
-
-                {
-                    race.RaceName = $"Race {races.Count + 1}";
-                }
-
-                races.Add(race);
-                numberOfRaces = races.Count;
-            }
+            races.Add(race);
+          
         }
 
         public List<Race> GetRaces()

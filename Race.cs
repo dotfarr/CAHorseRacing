@@ -10,7 +10,7 @@ namespace HorseRacing
     public class Race
     {
         public string raceName;
-        public DateTime startTime;
+        public string startTime;
         private List<Horse> horses;
 
         public string RaceName
@@ -20,7 +20,7 @@ namespace HorseRacing
 
         }
         
-        public DateTime StartTime
+        public string StartTime
         {
             get { return startTime; }
             set { startTime = value; }
@@ -36,15 +36,15 @@ namespace HorseRacing
 
         public Race()
         {
-            RaceName = "Race 1";
-            StartTime = DateTime.Now;
+            raceName = "Race 1";
+            startTime = "12 Noon";
             Horses = new List<Horse>();
         }
 
-        public Race(string racename, DateTime starttime)
+        public Race(string racename, string starttime)
         {
-            this.RaceName = racename;
-            this.StartTime = starttime;
+            this.raceName = racename;
+            this.startTime = starttime;
             Horses = new List<Horse>();
         
         }
