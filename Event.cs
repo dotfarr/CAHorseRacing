@@ -39,15 +39,16 @@ namespace HorseRacing
         {
             Name = "unknown";
             Location = "unknown";
+            NumberOfRaces = 0;
             races = new List<Race>();
             
         }
 
-        public Event(string name, string location)
+        public Event(string name, string location, int numberOfRaces)
         {
             this.name = name;
             this.location = location;
-            races = new List<Race>();
+            this.numberOfRaces = numberOfRaces;
                     
         }
 
@@ -80,6 +81,11 @@ namespace HorseRacing
             { 
                 Console.WriteLine($"Race Name: {race.RaceName}, Starting at: {race.StartTime}");
             }
+        }
+
+        public void EventDetails()
+        {
+            Console.WriteLine($"You have entered the Race Event {Name} at {Location} with {NumberOfRaces} races.");
         }
     }
 }
