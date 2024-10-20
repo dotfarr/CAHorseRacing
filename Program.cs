@@ -4,6 +4,34 @@
     {
         static void Main(string[] args)
         {
+            Event[] testEvents = new Event[2];
+
+            Event Naas = new Event("Naas Meet", "Naas", 3);
+            int amountRaces = Naas.numberOfRaces;
+            for (int i = 0; i < amountRaces; i++)
+
+            {
+                string raceName = $"Race {i + 1}";
+                string startTime = $"{i + 1} PM";
+                Race addedRace = new Race(raceName, startTime);
+                Naas.AddRace(addedRace);
+            }
+
+            testEvents[0] = Naas;
+
+            Event Newbridge = new Event("Newbridge Meet", "Newbridge", 4);
+            int amountRaces2 = Newbridge.numberOfRaces;
+            for (int j = 0; j < amountRaces2; j++)
+
+            {
+                string raceName = $"Race {j + 1}";
+                string startTime = $"{j + 1} PM";
+                Race addedRace = new Race(raceName, startTime);
+                Newbridge.AddRace(addedRace);
+
+            }
+
+            testEvents[1] = Newbridge;
 
             Menu menu = new Menu();
 
@@ -74,7 +102,54 @@
 
                     case 2:
 
-                        Console.WriteLine("Option 2");
+                        Console.WriteLine("These are the list of events available, please type the race number, otherwise type 99");
+
+                        Console.WriteLine();
+                        int RaceID = 1;
+                       
+                        foreach (var eventitem in testEvents)
+                        {
+                            Console.Write($"Event {RaceID}: ");
+                            eventitem.EventDetails();
+                            Console.WriteLine();
+                            RaceID++;
+                        }
+
+                        int eventSelected = int.Parse(Console.ReadLine()) - 1;
+
+                        if (eventSelected == 99)
+                        {
+                            Console.WriteLine("Bye");
+                        }
+
+                        else
+                        {
+                            testEvents[eventSelected].ListRaces();
+
+                        }
+
+                        Console.WriteLine();
+                        Console.WriteLine("Enter the Race number that you want to add a horse to:");
+                        int raceSelected = int.Parse(Console.ReadLine());
+
+                        Console.WriteLine("Enter the name of your horse: ");
+                        string name = Console.ReadLine();
+                        
+                        Console.Write("Enter the horse date of birth: ");
+                        DateOnly dateOfBirth = DateOnly.Parse(Console.ReadLine());
+
+                        Console.Write("Enter the horse ID: ");
+                        int horseID = int.Parse(Console.ReadLine());
+
+                        Horse addedHorse = new Horse(name, dateOfBirth, horseID);
+
+                        addedHorse.HorseDetails();
+                        int raceIndex = raceSelected - 1;
+
+                        testEvents[eventSelected].AddHorseToRace(raceIndex, name, dateOfBirth, horseID);
+
+                        testEvents[eventSelected].races[raceIndex].ListHorses();
+
 
                         break;
 

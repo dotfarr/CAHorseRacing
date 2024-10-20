@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 
 namespace HorseRacing
 {
+
+    
     public class Horse
     {
         //Each horse should have (at minimum) a name, date of birth and unique horseID.
@@ -40,6 +42,10 @@ namespace HorseRacing
             this.HorseID = horseID;
         }
 
+        public void HorseDetails()
+        {
+            Console.WriteLine($"Horse Name {name}, Date of Birth {dateOfBirth} and HorseID {horseID}.");
+        }
 
     }
 
