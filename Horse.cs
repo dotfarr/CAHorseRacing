@@ -35,6 +35,13 @@ namespace HorseRacing
 
         }
 
+        public Horse()
+        {
+            name = "unknown horse";
+            dateOfBirth = new DateOnly(2024, 01, 01);
+            horseID = 0;
+        }
+
         public Horse(string name, DateOnly dateOfBirth, int horseID)
         {
             this.Name = name;

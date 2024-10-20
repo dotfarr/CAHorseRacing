@@ -6,6 +6,12 @@
         {
             Event[] testEvents = new Event[2];
 
+            Horse horse1 = new Horse { name = "Fast Girl", dateOfBirth = new DateOnly(2022, 05, 05), horseID = 27 };
+
+            Horse horse2 = new Horse { name = "Speedy One", dateOfBirth = new DateOnly(2022, 09, 01), horseID = 34 };
+
+            Horse horse3 = new Horse { name = "Dead Last", dateOfBirth = new DateOnly(2022, 02, 12), horseID = 679 };
+
             Event Naas = new Event("Naas Meet", "Naas", 3);
             int amountRaces = Naas.numberOfRaces;
             for (int i = 0; i < amountRaces; i++)
@@ -15,6 +21,10 @@
                 string startTime = $"{i + 1} PM";
                 Race addedRace = new Race(raceName, startTime);
                 Naas.AddRace(addedRace);
+                addedRace.Horses.Add(horse1);
+                addedRace.Horses.Add(horse2);
+                addedRace.Horses.Add(horse3);
+
             }
 
             testEvents[0] = Naas;
@@ -156,6 +166,39 @@
                     case 3:
 
                         Console.WriteLine("Option 3");
+
+                        Console.WriteLine("Here are the list of upcoming racing events, please type the race event number you wish to attend, otherwise type 99");
+
+                        Console.WriteLine();
+                        int RaceAttendID = 1;
+                        foreach (var eventitem in testEvents)
+                        {
+                            Console.Write($"Event {RaceAttendID}: ");
+                            eventitem.EventDetails();
+                            Console.WriteLine();
+                            RaceAttendID++;
+                        }
+
+                        int attendEventSelected = int.Parse(Console.ReadLine()) - 1;
+
+                        if (attendEventSelected == 99)
+                        {
+                            Console.WriteLine("Bye");
+                        }
+
+                        else
+                        {
+                            Event displayEvent = testEvents[attendEventSelected];
+                            testEvents[attendEventSelected].ListRaces();
+
+                            foreach(Race race in displayEvent.races)
+                            {
+                                race.ListHorses();
+                            }
+                              
+                                                       
+                        }
+                        Console.WriteLine();
 
                         break;
 
