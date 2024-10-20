@@ -33,7 +33,7 @@ namespace HorseRacing
             set { horses = value; }
 
         }
-
+        // default constructor 
         public Race()
         {
             raceName = "Race 1";
@@ -57,6 +57,7 @@ namespace HorseRacing
 
         }
 
+        // method displaying list of horses on a race
         public void ListHorses() 
         
         {

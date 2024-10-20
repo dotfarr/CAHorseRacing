@@ -10,7 +10,7 @@ namespace HorseRacing
     
     public class Horse
     {
-        //Each horse should have (at minimum) a name, date of birth and unique horseID.
+        
         public string name;
         public DateOnly dateOfBirth;
         public int horseID;
@@ -35,6 +35,7 @@ namespace HorseRacing
 
         }
 
+        // default constructor 
         public Horse()
         {
             name = "unknown horse";
@@ -49,6 +50,7 @@ namespace HorseRacing
             this.HorseID = horseID;
         }
 
+        // method to display horse details
         public void HorseDetails()
         {
             Console.WriteLine($"Horse Name {name}, Date of Birth {dateOfBirth} and HorseID {horseID}.");

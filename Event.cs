@@ -34,6 +34,7 @@ namespace HorseRacing
         
         }
 
+        // default constructor 
         public Event() 
 
         {
@@ -44,6 +45,7 @@ namespace HorseRacing
             
         }
 
+        // constructor 
         public Event(string name, string location, int numberOfRaces)
         {
             this.name = name;
@@ -53,18 +55,21 @@ namespace HorseRacing
                     
         }
 
+        //method to add race to event
          public void AddRace(Race race)
         {
             races.Add(race);
           
         }
 
+        // method to give a list of races in a event
         public List<Race> GetRaces()
 
         {
             return races;
         }
 
+        // method to display a list of races in an event
         public void ListRaces()
         {
             Console.WriteLine($"Races for the event {Name} at {Location}:");
@@ -77,11 +82,13 @@ namespace HorseRacing
             }
         }
 
+        // method to display the details of a event
         public void EventDetails()
         {
             Console.WriteLine($"Race Event {Name} at {Location} with {NumberOfRaces} races.");
         }
 
+        // method to add horse to a race in an event
         public void AddHorseToRace (int raceIndex, string name, DateOnly dateOfBirth, int horseID)
         {
             races[raceIndex].AddHorse(new Horse(name, dateOfBirth, horseID));
